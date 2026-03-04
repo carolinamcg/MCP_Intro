@@ -21,8 +21,11 @@ docs = {
 }
 
 
-# TODO: Write a prompt to rewrite a doc in markdown format
-# TODO: Write a prompt to summarize a doc
+'''
+Tools: Claude/AI model decides when to use them
+Resoureces: The app decides when to call these, when it needs to get data into your app/server (maybe display info to the user) or add content to the messages to send to Claude
+Prompts: Controlled by the user.
+'''
 
 
 # The SDK uses decorators to define tools. Instead of writing JSON schemas manually, you can use Python type hints and field descriptions. The SDK automatically generates the proper schema that Claude can understand:
