@@ -4,7 +4,9 @@ import os
 from dotenv import load_dotenv
 from contextlib import AsyncExitStack
 
-from mcp_client import MCPClient # MCP client is what Connects our server to a MCP server. 
+from mcp_client import (
+    MCPClient,
+)  # MCP client is what Connects our server to a MCP server.
 from core.claude import Claude
 
 from core.cli_chat import CliChat
@@ -18,9 +20,7 @@ anthropic_api_key = os.getenv("ANTHROPIC_API_KEY", "")
 
 
 assert claude_model, "Error: CLAUDE_MODEL cannot be empty. Update .env"
-assert anthropic_api_key, (
-    "Error: ANTHROPIC_API_KEY cannot be empty. Update .env"
-)
+assert anthropic_api_key, "Error: ANTHROPIC_API_KEY cannot be empty. Update .env"
 
 
 async def main():
@@ -38,7 +38,7 @@ async def main():
     async with AsyncExitStack() as stack:
         doc_client = await stack.enter_async_context(
             MCPClient(command=command, args=args)
-        ) # Creates a client and a session to connect to our MCP server (mcp_server.py)
+        )  # Creates a client and a session to connect to our MCP server (mcp_server.py)
         clients["doc_client"] = doc_client
 
         for i, server_script in enumerate(server_scripts):
@@ -65,9 +65,9 @@ if __name__ == "__main__":
     asyncio.run(main())
 
 
-
-'''
+"""
 TODO:
 1. Adapt code to use OpenRouter instead of Anthropic
 2. Improve tools and access to real docs
-'''
+3. Would it work with other (free) models, like gemini?
+"""

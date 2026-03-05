@@ -56,7 +56,7 @@ uv run main.py
 1. Create and activate a virtual environment:
 
 ```bash
-python -m venv .venv
+python3.14 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
